@@ -8,3 +8,12 @@ class BaseItem(ABC):
     @abstractmethod
     def get_description(self):
         pass
+    
+    @abstractmethod
+    def get_name():
+        pass
+    
+    @abstractmethod
+    def get_id(self):
+        pass
+
