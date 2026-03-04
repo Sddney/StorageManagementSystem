@@ -115,10 +115,12 @@ def add_category():
     frame = Frame(window, bg='white')
     frame.place(relx=0.5, rely=0.5, relheight=0.5, relwidth=0.5, anchor='nw')
     
+    Label(frame, text="Name:").grid(row=0, column=0, padx=10, pady=10, sticky="e")
+    Label(frame, text="Transport to:").grid(row=1, column=0, padx=10, pady=10, sticky="e")
+
     name = Entry(frame, width=20)
     transport_to = Entry(frame, width=20)
    
-
     name.place(relx=0.5, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
     transport_to.place(relx=0.5, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
 
@@ -126,8 +128,8 @@ def add_category():
         for i in range(10000):
             id = randint(1000, 9999)
             if db_category.get_one(id) == None:
-                new_product = Category(name.get(), id, transport_to.get())
-                db_category.insert(new_product)
+                new_category = Category(name.get(), id, transport_to.get())
+                db_category.insert(new_category)
                 messagebox.showinfo("Storage", "Category added successfully!")
                 frame.destroy()
                 break
@@ -141,8 +143,10 @@ def show_categories():
 
 
 def delete_category():
-    frame = Frame(window, bg='lightgreen')
-    frame.place(relx=0.5, rely=0, relheight=0.5, relwidth=0.5, anchor='nw')
+    frame = Frame(window, bg='white')
+    frame.place(relx=0.5, rely=0.5, relheight=0.5, relwidth=0.5, anchor='nw')
+
+    Label(frame, text="Enter a category's ID").grid(row=1, column=0, padx=10, pady=10, sticky="e")
 
     id = Entry(frame, width=20)
     id.place(relx=0.5, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
@@ -162,28 +166,30 @@ def delete_category():
 
 
 def update_category():
-    frame = Frame(window, bg='lightgreen')
-    frame.place(relx=0.5, rely=0, relheight=0.5, relwidth=0.5, anchor='nw')
+    frame = Frame(window, bg='white')
+    frame.place(relx=0.5, rely=0.5, relheight=0.5, relwidth=0.5, anchor='nw')
+
+    Label(frame, text="ID:").grid(row=0, column=0, padx=10, pady=10, sticky="e")
+    Label(frame, text="Name:").grid(row=1, column=0, padx=10, pady=10, sticky="e")
+    Label(frame, text="Transport to:").grid(row=2, column=0, padx=10, pady=10, sticky="e")
     
     
     id = Entry(frame, width=20)
     id.place(relx=0.5, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
     
     name = Entry(frame, width=20)
-    quantity = Entry(frame, width=20)
-    price = Entry(frame, width=20)
+    transport_to = Entry(frame, width=20)
 
     name.place(relx=0.5, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
-    quantity.place(relx=0.5, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
-    price.place(relx=0.5, rely=0.7, relwidth=0.3, relheight=0.15, anchor='nw')
+    transport_to.place(relx=0.5, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
 
     def commit():
         if db_category.get_one(id.get()) == None:
             messagebox.showerror("Storage", "This product does not exist!")
             frame.destroy()
             return
-        new_product = Product(name.get(), price.get(), quantity.get(), "None", id.get())
-        db_product.update(id.get(), new_product)
+        new_category = Category(name.get(), id.get(), transport_to.get())
+        db_category.update(id.get(), new_category)
         messagebox.showinfo("Storage", "Product updated successfully!")
         frame.destroy()
 
@@ -222,10 +228,10 @@ frame_categories.place(relx=0, rely=0.5, relheight=0.5, relwidth=1, anchor='nw')
 lbl_category = Label(frame_categories, text="Categories Manager", bg='lightblue')
 lbl_category.pack()
 
-btn_add_category = Button(frame_categories, text="Add Category")
-btn_show_categories = Button(frame_categories, text="Show Categories")
-btn_delete_category = Button(frame_categories, text="Delete Category") 
-btn_update_category = Button(frame_categories, text="Update Category")
+btn_add_category = Button(frame_categories, text="Add Category", command=add_category)
+btn_show_categories = Button(frame_categories, text="Show Categories", command=show_categories)
+btn_delete_category = Button(frame_categories, text="Delete Category", command=delete_category) 
+btn_update_category = Button(frame_categories, text="Update Category", command=update_category)
 
 btn_add_category.place(relx = 0.1, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
 btn_show_categories.place(relx = 0.1, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
