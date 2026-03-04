@@ -1,4 +1,4 @@
-from base_item import BaseItem
+from models.base_item import BaseItem
 
 class Product(BaseItem):
 
