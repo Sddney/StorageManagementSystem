@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 
 class DatabaseMethods(ABC):
     @abstractmethod
-    def get_one(self, id):
+    def get_by_id(self, id):
         pass
 
     @abstractmethod
@@ -18,5 +18,6 @@ class DatabaseMethods(ABC):
     def update(self, id, item):
         pass
 
+    @abstractmethod
     def get_all(self):
         pass

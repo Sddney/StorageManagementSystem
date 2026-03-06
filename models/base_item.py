@@ -10,7 +10,7 @@ class BaseItem(ABC):
         pass
     
     @abstractmethod
-    def get_name():
+    def get_name(self):
         pass
     
     @abstractmethod
