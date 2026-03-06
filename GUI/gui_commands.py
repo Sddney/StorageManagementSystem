@@ -196,7 +196,7 @@ def update_category():
     btn_commit = Button(frame, text="Commit", command=commit)
     btn_commit.place(relx=0.5, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
 
-
+"""
 def add_cities():
     while True:
         frame_cities = Frame(window, bg='lightyellow')
@@ -231,8 +231,9 @@ def add_cities():
                 
 
         
-        
+     
         btn_commit_cities  = Button(frame_cities, text="Commit", command=commit)
+"""
 
 window = Tk()
 window.title("Storage Management")
@@ -273,7 +274,7 @@ btn_show_categories.place(relx = 0.1, rely=0.3, relwidth=0.3, relheight=0.15, an
 btn_delete_category.place(relx = 0.1, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
 btn_update_category.place(relx = 0.1, rely=0.7, relwidth=0.3, relheight=0.15, anchor='nw')
 
-btn_add_cities = Button(window, text="Add Cities", command=add_cities)
-btn_add_cities.place(relx=0.1, rely=0.46, relwidth=0.3, relheight=0.08, anchor='nw')
+#btn_add_cities = Button(window, text="Add Cities", command=add_cities)
+#btn_add_cities.place(relx=0.1, rely=0.46, relwidth=0.3, relheight=0.08, anchor='nw')
 
 window.mainloop()
