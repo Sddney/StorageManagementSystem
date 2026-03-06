@@ -1,0 +1,26 @@
+from sqlite3 import *
+from abstract_methods import DatabaseMethods
+
+class CategoryDatabase(DatabaseMethods):
+    def __init__(self, database):
+        self.connection = connect(database)
+        self.cursor = self.connection.cursor()
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS categories(category_name, category_id, transport_to)")
+    
+    def get(self, id):
+        self.cursor.execute("SELECT * FROM categories WHERE category_id=?", (id))
+        return self.cursor.fetchone()
+    
+    def insert(self, item):
+        self.cursor.execute("INSERT INTO categories(category_name, category_id, transport_to) VALUES(?, ?, ?)",
+                            (item.get_name(), item.get_id(), item.transport_to))
+        self.connection.commit()
+    
+    def delete(self, id):
+        self.cursor.execute("DELETE FROM categories WHERE category_id=?", (id))
+        self.connection.commit()
+
+    def update(self, id, item):
+        self.cursor.execute("UPDATE categories SET category_name=?, transport_to=? WHERE category_id=?",
+                           (item.get_name(), item.transport_to, id))
+        self.connection.commit()
