@@ -197,7 +197,42 @@ def update_category():
     btn_commit.place(relx=0.5, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
 
 
+def add_cities():
+    while True:
+        frame_cities = Frame(window, bg='lightyellow')
+        frame_cities.place(relx=0, rely=0, relheight=1, relwidth=1, anchor='nw')
 
+        Label(frame_cities, text="Cities", bg='lightyellow').place(relx=0.5, rely=0.05, anchor='center')
+        Label(frame_cities, text="City Name:", bg='lightyellow').place(relx=0.1, rely=0.1, anchor='center')
+        Label(frame_cities, text="Connected to(write max 3 cities seperating them with coma):", bg='lightyellow').place(relx=0.1, rely=0.2, anchor='center')
+        
+        city_name = Entry(frame_cities, width=20)
+        city_name.place(relx=0.3, rely=0.1, anchor='center')
+        
+        connected_to = Entry(frame_cities, width=20)
+        connected_to.place(relx=0.3, rely=0.2, anchor='center')
+
+        def commit():
+            connected_cities = [city.strip() for city in connected_to.get().split(',')]
+            if len(connected_cities) > 3:
+                messagebox.showerror("Storage", "You can connect a city to maximum 3 other cities!")
+                continue
+            else:
+                messagebox.showinfo("Storage", "Cities added successfully!")
+                frame_cities_distance = Frame(frame_cities, bg='lightyellow')
+                frame_cities_distance.place(relx=0, rely=0.5, relheight=0.5, relwidth=1, anchor='nw')
+                #for i, city in enumerate(connected_cities):
+                #    Label(frame_cities_distance, text=f"Distance to {city}:", bg='lightyellow').place(relx=0.1, rely=0.1 + i*0.1, anchor='center')
+                #    distances = []
+                #    distance = Entry(frame_cities_distance, width=20)
+                #    distance.place(relx=0.3, rely=0.1 + i*0.1, anchor='center')
+                #    distances.append(distance.get())
+
+                
+
+        
+        
+        btn_commit_cities  = Button(frame_cities, text="Commit", command=commit)
 
 window = Tk()
 window.title("Storage Management")
@@ -237,5 +272,8 @@ btn_add_category.place(relx = 0.1, rely=0.1, relwidth=0.3, relheight=0.15, ancho
 btn_show_categories.place(relx = 0.1, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
 btn_delete_category.place(relx = 0.1, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
 btn_update_category.place(relx = 0.1, rely=0.7, relwidth=0.3, relheight=0.15, anchor='nw')
+
+btn_add_cities = Button(window, text="Add Cities", command=add_cities)
+btn_add_cities.place(relx=0.1, rely=0.46, relwidth=0.3, relheight=0.08, anchor='nw')
 
 window.mainloop()
