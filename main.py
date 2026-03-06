@@ -1,3 +1,5 @@
+import GUI.gui_commands
+
 from tkinter import *
 from StorageManager.storage_manager import StorageManager
 
