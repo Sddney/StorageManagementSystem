@@ -3,7 +3,7 @@ from base_item import BaseItem
 class Category(BaseItem):
 
     def __init__(self, name, category_id, transport_to):
-        self.name = name
+        super().__init__(name)
         self.category_id = category_id
         self.transport_to = transport_to
 

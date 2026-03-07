@@ -1,13 +1,13 @@
 from tkinter import *
 from tkinter import messagebox
 from random import randint
-from database.product_database import ProductDatabase
-from database.category_database import CategoryDatabase
+from database.product_repository import ProductRepository
+from database.category_repository import CategoryRepository
 from models.product import Product
 from models.category import Category
 
-db_product = ProductDatabase('products_storage.db')
-db_category = CategoryDatabase('categories_storage.db')
+db_product = ProductRepository('products_storage.db')
+db_category = CategoryRepository('categories_storage.db')
 
 def add_product():
     frame = Frame(window, bg='lightgreen')
