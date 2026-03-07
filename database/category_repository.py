@@ -8,7 +8,7 @@ class CategoryRepository(DatabaseMethods, ABC):
         self.cursor = self.connection.cursor()
         self.cursor.execute("""CREATE TABLE IF NOT EXISTS categories(category_name TEXT, category_id INTEGER, transport_to TEXT)""")
 
-    def get_one(self, id):
+    def get_by_id(self, id):
         self.cursor.execute("SELECT * FROM categories WHERE category_id=?", (id,))
         return self.cursor.fetchone()
     

@@ -148,7 +148,7 @@ def add_category():
     def commit():
         for i in range(10000):
             id = randint(1000, 9999)
-            if db_category.get_one(id) == None:
+            if db_category.get_by_id(id) == None:
                 new_category = Category(name.get(), id, transport_to.get())
                 db_category.insert(new_category)
                 messagebox.showinfo("Storage", "Category added successfully!")
@@ -180,7 +180,7 @@ def delete_category():
 
 
     def delete():
-        if db_category.get_one(id.get()) == None:
+        if db_category.get_by_id(id.get()) == None:
             messagebox.showerror("Storage", "This category does not exist!")
             frame.destroy()
             return
@@ -217,7 +217,7 @@ def update_category():
     transport_to.place(relx=0.5, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
 
     def commit():
-        if db_category.get_one(id.get()) == None:
+        if db_category.get_by_id(id.get()) == None:
             messagebox.showerror("Storage", "This product does not exist!")
             frame.destroy()
             return

@@ -5,7 +5,7 @@ with open("algorithm/cities.json") as f:
 
 #Example dataset was taken from kaggle  https://www.kaggle.com/datasets/lightningforpython/russian-cities-distance-dataset
 
-def Dijkstra(graph, start, end):
+def dijkstra(graph, start, end):
     shortest_distance = {}
     predecessor = {}
     unseenNodes = dict(graph)
@@ -42,7 +42,7 @@ def Dijkstra(graph, start, end):
         return str(shortest_distance[end]), path
     
 
-def ReturnCities():
+def return_cities():
     with open("algorithm/cities.json") as f:
         data = json.load(f)
     return list(dict(data).keys())
