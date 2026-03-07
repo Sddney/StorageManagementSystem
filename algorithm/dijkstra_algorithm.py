@@ -3,8 +3,9 @@ import json
 with open("algorithm/cities.json") as f:
     graph = json.load(f)
 
- #
-def dijkstra(graph, start, end):
+#Example dataset was taken from kaggle  https://www.kaggle.com/datasets/lightningforpython/russian-cities-distance-dataset
+
+def Dijkstra(graph, start, end):
     shortest_distance = {}
     predecessor = {}
     unseenNodes = dict(graph)
@@ -35,12 +36,17 @@ def dijkstra(graph, start, end):
             path.insert(0, currentNode)
             currentNode = predecessor[currentNode]
         except KeyError:
-            print('Path not reachable')
-            break
+            return 'Path not reachable'
     path.insert(0, start)
     if shortest_distance[end] != infinity:
-        print('Shortest distance is ' + str(shortest_distance[end]))
-        print('And the path is ' + str(path))
+        return str(shortest_distance[end]), path
+    
+
+def ReturnCities():
+    with open("algorithm/cities.json") as f:
+        data = json.load(f)
+    return list(dict(data).keys())
+    
 
 
-dijkstra(graph, "Zelenokumsk", "Qinhuangdao")   
+#print(Dijkstra(graph, "Blagodarnyy", "Budonnovsk"))

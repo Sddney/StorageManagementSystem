@@ -35,3 +35,7 @@ class CategoryDatabase(DatabaseMethods):
             return result
         else: 
             return None
+    
+    def get_categories(self):
+        self.cursor.execute("SELECT category_name FROM categories")
+        return self.cursor.fetchall()

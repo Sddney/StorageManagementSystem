@@ -1,10 +1,13 @@
 from tkinter import *
-from tkinter import messagebox
+from tkinter import messagebox, ttk
 from random import randint
 from database.product_database import ProductDatabase
 from database.category_database import CategoryDatabase
 from models.product import Product
 from models.category import Category
+from algorithm.dijkstra_algorithm import Dijkstra, ReturnCities
+import json
+
 
 db_product = ProductDatabase('products_storage.db')
 db_category = CategoryDatabase('categories_storage.db')
@@ -21,7 +24,7 @@ def add_product():
     name = Entry(frame, width=20)
     price = Entry(frame, width=20)
     quantity = Entry(frame, width=20)
-    category = Entry(frame, width=20)
+    category = ttk.Combobox(frame, values=db_category.get_categories(), state='readonly')
 
     name.place(relx=0.5, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
     price.place(relx=0.5, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
@@ -38,6 +41,12 @@ def add_product():
                 messagebox.showinfo("Storage", "Product added successfully!")
                 frame.destroy()
                 break
+    
+    def back():
+        frame.destroy()
+    
+    btn_back = Button(frame, text="Back", command=back)
+    btn_back.place(relx=0.3, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
     
     btn_commit = Button(frame, text="Commit", command=commit)
     btn_commit.place(relx=0.5, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
@@ -67,6 +76,12 @@ def delete_product():
         messagebox.showinfo("Storage", "Product deleted successfully!")
         frame.destroy()
 
+    def back():
+        frame.destroy()
+    
+    btn_back = Button(frame, text="Back", command=back)
+    btn_back.place(relx=0.3, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
+
     btn_delete = Button(frame, text="Delete", command=delete)
     btn_delete.place(relx=0.5, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
 
@@ -89,37 +104,43 @@ def update_product():
     name = Entry(frame, width=20)
     price = Entry(frame, width=20)
     quantity = Entry(frame, width=20)
-    categoty = Entry(frame, width=20)
+    category = ttk.Combobox(frame, values=db_category.get_categories(), state='readonly')
 
-    name.place(relx=0.5, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
-    price.place(relx=0.5, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
-    quantity.place(relx=0.5, rely=0.7, relwidth=0.3, relheight=0.15, anchor='nw')
-    categoty.place(relx=0.5, rely=0.9, relwidth=0.3, relheight=0.15, anchor='nw')
+    name.place(relx=0.5, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
+    price.place(relx=0.5, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
+    quantity.place(relx=0.5, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
+    category.place(relx=0.5, rely=0.7, relwidth=0.3, relheight=0.15, anchor='nw')
 
     def commit():
         if db_product.get_one(id.get()) == None:
             messagebox.showerror("Storage", "This product does not exist!")
             frame.destroy()
             return
-        new_product = Product(name.get(), price.get(), quantity.get(), categoty.get(), id.get())
+        new_product = Product(name.get(), price.get(), quantity.get(), category.get(), id.get())
         db_product.update(id.get(), new_product)
         messagebox.showinfo("Storage", "Product updated successfully!")
         frame.destroy()
 
+    def back():
+        frame.destroy()
+    
+    btn_back = Button(frame, text="Back", command=back)
+    btn_back.place(relx=0.2, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
+
     btn_commit = Button(frame, text="Commit", command=commit)
-    btn_commit.place(relx=0.2, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
+    btn_commit.place(relx=0.7, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
 
 
 
 def add_category():
-    frame = Frame(window, bg='white')
+    frame = Frame(window, bg='lightgreen')
     frame.place(relx=0.5, rely=0.5, relheight=0.5, relwidth=0.5, anchor='nw')
     
     Label(frame, text="Name:").grid(row=0, column=0, padx=10, pady=10, sticky="e")
     Label(frame, text="Transport to:").grid(row=1, column=0, padx=10, pady=10, sticky="e")
 
     name = Entry(frame, width=20)
-    transport_to = Entry(frame, width=20)
+    transport_to = ttk.Combobox(frame, values=ReturnCities(), state='readonly')
    
     name.place(relx=0.5, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
     transport_to.place(relx=0.5, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
@@ -133,6 +154,12 @@ def add_category():
                 messagebox.showinfo("Storage", "Category added successfully!")
                 frame.destroy()
                 break
+
+    def back():
+        frame.destroy()
+    
+    btn_back = btn_back = Button(frame, text="Back", command=back)
+    btn_back.place(relx=0.3, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
     
     btn_commit = Button(frame, text="Commit", command=commit)
     btn_commit.place(relx=0.5, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
@@ -143,7 +170,7 @@ def show_categories():
 
 
 def delete_category():
-    frame = Frame(window, bg='white')
+    frame = Frame(window, bg='lightgreen')
     frame.place(relx=0.5, rely=0.5, relheight=0.5, relwidth=0.5, anchor='nw')
 
     Label(frame, text="Enter a category's ID").grid(row=1, column=0, padx=10, pady=10, sticky="e")
@@ -160,13 +187,19 @@ def delete_category():
         db_category.delete(id.get())
         messagebox.showinfo("Storage", "Category deleted successfully!")
         frame.destroy()
+    
+    def back():
+        frame.destroy()
+    
+    btn_back = btn_back = Button(frame, text="Back", command=back)
+    btn_back.place(relx=0.3, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
 
     btn_delete = Button(frame, text="Delete", command=delete)
     btn_delete.place(relx=0.5, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
 
 
 def update_category():
-    frame = Frame(window, bg='white')
+    frame = Frame(window, bg='lightgreen')
     frame.place(relx=0.5, rely=0.5, relheight=0.5, relwidth=0.5, anchor='nw')
 
     Label(frame, text="ID:").grid(row=0, column=0, padx=10, pady=10, sticky="e")
@@ -178,7 +211,7 @@ def update_category():
     id.place(relx=0.5, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
     
     name = Entry(frame, width=20)
-    transport_to = Entry(frame, width=20)
+    transport_to = ttk.Combobox(frame, values=ReturnCities(), state='readonly')
 
     name.place(relx=0.5, rely=0.3, relwidth=0.3, relheight=0.15, anchor='nw')
     transport_to.place(relx=0.5, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
@@ -193,12 +226,52 @@ def update_category():
         messagebox.showinfo("Storage", "Product updated successfully!")
         frame.destroy()
 
+    def back():
+        frame.destroy()
+    
+    btn_back = btn_back = Button(frame, text="Back", command=back)
+    btn_back.place(relx=0.5, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
+
     btn_commit = Button(frame, text="Commit", command=commit)
-    btn_commit.place(relx=0.5, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
+    btn_commit.place(relx=0.7, rely=0.9, relwidth=0.2, relheight=0.1, anchor='nw')
 
 
 def show_route():
-    pass
+    with open("algorithm/cities.json") as f:
+        graph = json.load(f)
+    
+    frame_cities = Frame(window, bg='lightyellow')
+    frame_cities.place(relx=0, rely=0, relheight=1, relwidth=1, anchor='nw')
+
+    city_from = ttk.Combobox(frame_cities, values=ReturnCities(), state='readonly')
+    city_from.place(relx=0.1, rely=0.4, relwidth=0.2, relheight=0.05, anchor='nw')
+    city_from.current(0)
+
+    city_to = ttk.Combobox(frame_cities, values=ReturnCities(), state='readonly')
+    city_to.place(relx=0.7, rely=0.4, relwidth=0.2, relheight=0.05, anchor='nw')
+    city_to.current(0)
+
+    def show():
+        if city_from.get() == city_to.get():
+            messagebox.showerror("Route", "Choose different cities!")
+            return
+        result = Dijkstra(graph, city_from.get(), city_to.get())
+        if result == 'Path not reachable':
+            messagebox.showerror("Route", "Path not reachable")
+            return
+        
+        distance, path = result
+        messagebox.showinfo("Route", "Distance between cities: " + str(distance) + "\nPath: " + ' -> '.join(path))
+
+    btn_show = Button(frame_cities, text="Show Route", command=show)
+    btn_show.place(relx=0.4, rely=0.6, relwidth=0.2, relheight=0.1, anchor='nw')
+
+    def Back():
+        frame_cities.destroy()
+
+    btn_back = Button(frame_cities, text="Back", command=Back)
+    btn_back.place(relx=0.7, rely=0.7, relwidth=0.1, relheight=0.05, anchor='nw')
+
         
 
 
@@ -241,7 +314,7 @@ btn_show_categories.place(relx = 0.1, rely=0.3, relwidth=0.3, relheight=0.15, an
 btn_delete_category.place(relx = 0.1, rely=0.5, relwidth=0.3, relheight=0.15, anchor='nw')
 btn_update_category.place(relx = 0.1, rely=0.7, relwidth=0.3, relheight=0.15, anchor='nw')
 
-btn_show_route = Button(window, text="Add Cities", command=show_route)
+btn_show_route = Button(window, text="Show Route Between Cities", command=show_route)
 btn_show_route.place(relx=0.1, rely=0.46, relwidth=0.3, relheight=0.08, anchor='nw')
 
 window.mainloop()
