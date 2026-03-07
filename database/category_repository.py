@@ -34,5 +34,9 @@ class CategoryRepository(DatabaseMethods, ABC):
             for row in data:
                 result += f"Name: {row[0]}, ID: {row[1]}, Transport to: {row[2]}\n"
             return result
-        else:
+        else: 
             return None
+
+    def get_categories(self):
+        self.cursor.execute("SELECT category_name FROM categories")
+        return self.cursor.fetchall()

@@ -1,0 +1,97 @@
+
+
+{
+  "Blagodarnyy": [
+    ["Budonnovsk", 70],
+    ["Svetlograd", 68],
+    ["Mineral'nyye Vody", 128],
+    ["Nevinnomyssk", 176]
+  ],
+  "Budonnovsk": [
+    ["Zelenokumsk", 60],
+    ["Neftekumsk", 73]
+  ],
+  "Svetlograd": [
+    ["Blagodarnyy", 68],
+    ["Mineral'nyye Vody", 153],
+    ["Izobil'nyy", 126],
+    ["Mikhaylovsk", 85],
+    ["Ipatovo", 53]
+  ],
+  "Zelenokumsk": [
+    ["Georgievsk", 54]
+  ],
+  "Neftekumsk": [],
+  "Georgievsk": [
+    ["Zelenokumsk", 54],
+    ["Novopavlovsk", 29],
+    ["Pyatigorsk", 46],
+    ["Mineral'nyye Vody", 38],
+    ["Zheleznovodsk", 54]
+  ],
+  "Novopavlovsk": [
+    ["Georgievsk", 29],
+    ["Pyatigorsk", 66]
+  ],
+  "Pyatigorsk": [
+    ["Georgievsk", 46],
+    ["Mineral'nyye Vody", 25],
+    ["Zheleznovodsk", 21],
+    ["Lermontov", 12],
+    ["Yessentuki", 18]
+  ],
+  "Mineral'nyye Vody": [
+    ["Pyatigorsk", 25],
+    ["Zheleznovodsk", 18],
+    ["Nevinnomyssk", 110],
+    ["Blagodarnyy", 128],
+    ["Svetlograd", 153]
+  ],
+  "Zheleznovodsk": [
+    ["Pyatigorsk", 21],
+    ["Lermontov", 19],
+    ["Yessentuki", 25]
+  ],
+  "Lermontov": [
+    ["Pyatigorsk", 12],
+    ["Zheleznovodsk", 19]
+  ],
+  "Yessentuki": [
+    ["Pyatigorsk", 18],
+    ["Zheleznovodsk", 25],
+    ["Nevinnomyssk", 125]
+  ],
+  "Nevinnomyssk": [
+    ["Mineral'nyye Vody", 110],
+    ["Yessentuki", 125],
+    ["Blagodarnyy", 176],
+    ["Stavropol", 55],
+    ["Novoaleksandrovsk", 138]
+  ],
+  "Stavropol": [
+    ["Nevinnomyssk", 55],
+    ["Izobil'nyy", 53],
+    ["Mikhaylovsk", 15]
+  ],
+  "Novoaleksandrovsk": [
+    ["Nevinnomyssk", 138],
+    ["Izobil'nyy", 49]
+  ],
+  "Izobil'nyy": [
+    ["Novoaleksandrovsk", 49],
+    ["Mikhaylovsk", 46],
+    ["Stavropol", 53],
+    ["Svetlograd", 126],
+    ["Ipatovo", 124]
+  ],
+  "Mikhaylovsk": [
+    ["Izobil'nyy", 46],
+    ["Stavropol", 15],
+    ["Svetlograd", 85]
+  ],
+  "Ipatovo": [
+    ["Izobil'nyy", 124],
+    ["Svetlograd", 53]
+  ],
+  "Qinhuangdao": []
+}
