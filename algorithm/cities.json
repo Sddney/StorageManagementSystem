@@ -21,7 +21,6 @@
   "Zelenokumsk": [
     ["Georgievsk", 54]
   ],
-  "Neftekumsk": [],
   "Georgievsk": [
     ["Zelenokumsk", 54],
     ["Novopavlovsk", 29],
@@ -68,6 +67,7 @@
     ["Stavropol", 55],
     ["Novoaleksandrovsk", 138]
   ],
+  "Neftekumsk": [],
   "Stavropol": [
     ["Nevinnomyssk", 55],
     ["Izobil'nyy", 53],
