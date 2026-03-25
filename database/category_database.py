@@ -29,10 +29,7 @@ class CategoryDatabase(DatabaseMethods):
         self.cursor.execute("SELECT * FROM categories")
         data = self.cursor.fetchall()
         if data:
-            result = ''
-            for row in data:
-                result += f"Name: {row[0]}, ID: {row[1]}, Transport to: {row[2]}\n"
-            return result
+            return data
         else: 
             return None
     

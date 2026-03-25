@@ -1,4 +1,5 @@
 import json
+import copy
 
 with open("algorithm/cities.json") as f:
     graph = json.load(f)
@@ -8,7 +9,7 @@ with open("algorithm/cities.json") as f:
 def Dijkstra(graph, start, end):
     shortest_distance = {}
     predecessor = {}
-    unseenNodes = dict(graph)
+    unseenNodes = copy.deepcopy(graph)
     infinity = float('infinity')
     path = []
 

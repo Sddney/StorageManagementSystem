@@ -34,10 +34,7 @@ class ProductDatabase(DatabaseMethods):
         self.cursor.execute("SELECT * FROM products")
         data = self.cursor.fetchall()
         if data is not None:
-            result = ''
-            for row in data:
-                result += f"Name: {row[0]}, Price: ${row[1]}, Quantity: {row[2]}, ID: {row[3]}, Category: {row[4]}\n"
-            return result
+            return data
         else:
             return None
 
