@@ -1,1 +1,3 @@
-import GUI.gui_commands
+from GUI.gui_commands import RunGUI
+
+RunGUI()

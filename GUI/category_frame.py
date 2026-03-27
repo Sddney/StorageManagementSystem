@@ -63,7 +63,7 @@ class CategoryFrame(AbstractFrame):
 
         for he in heads:
             table.heading(he, text=he, anchor='center')
-            table.column(he, anchor='center', width=100, stretch=False)
+            table.column(he, anchor='center', width=500//3, stretch=False)
 
         for row in lst:
             table.insert("", END, values=row)
@@ -78,10 +78,10 @@ class CategoryFrame(AbstractFrame):
         frame = Frame(self.parent, bg = '#E6E6E6', highlightbackground="#8E8E8E", highlightthickness=1)
         frame.place(relx=0.1, rely=0.45, relheight=0.5, relwidth=0.8, anchor='nw')
 
-        Label(frame, text="Enter a category's ID:", bg = '#E6E6E6', font=("Arial", 10)).place(relx=0.1, rely=0.1, relwidth=0.2, relheight=0.15, anchor='nw')
+        Label(frame, text="Enter a category's ID:", bg = '#E6E6E6', font=("Arial", 10)).place(relx=0.05, rely=0.1, relwidth=0.3, relheight=0.15, anchor='nw')
 
         id = Entry(frame, width=20)
-        id.place(relx=0.3, rely=0.1, relwidth=0.2, relheight=0.15, anchor='nw')
+        id.place(relx=0.35, rely=0.1, relwidth=0.2, relheight=0.15, anchor='nw')
 
 
         def delete():
