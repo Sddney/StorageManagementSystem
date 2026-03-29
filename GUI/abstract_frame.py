@@ -1,21 +1,25 @@
 from abc import ABC, abstractmethod
 
 class AbstractFrame(ABC):
-    def __init__(self, parent):
+    """
+    Abstract base class for GUI frames.
+    Ensures all GUI classes implement required methods.
+    """
+    def __init__(self, parent):  #store a reference to the parent Tkinter widget.
         self.parent = parent
 
     @abstractmethod
-    def Add(self):
+    def add(self):  #render a form for creating a new record.
         pass
 
     @abstractmethod
-    def Delete(self):
+    def delete(self):  #render a form for deleting an existing record by ID.
         pass
     
     @abstractmethod
-    def Show(self):
+    def show(self):  #render a table view of all records.
         pass
 
     @abstractmethod
-    def Update(self):
+    def update(self):  #render a form for editing an existing record.
         pass    

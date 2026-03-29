@@ -1,21 +1,25 @@
 from tkinter import *
 from tkinter import messagebox, ttk
 from random import randint
-from database.product_database import ProductDatabase
-from database.category_database import CategoryDatabase
 from models.product import Product
-from models.category import Category
 from GUI.abstract_frame import AbstractFrame
-
-db_category = CategoryDatabase('categories_storage.db')
-db_product = ProductDatabase('products_storage.db')
+from database.databases_initialization import db_category, db_product
 
 class ProductFrame(AbstractFrame):
+
+    """
+    GUI class handles user interaction related to product management
+    Implements abstract methods from AbstractFrame
+    """
 
     def __init__(self, parent):
         super().__init__(parent)
 
-    def Add(self):
+    def add(self):
+
+        """
+        Renders a form that lets the user create a new product with a unique ID
+        """
         frame = Frame(self.parent, bg = '#E6E6E6', highlightbackground="#8E8E8E", highlightthickness=1)
         frame.place(relx=0.1, rely=0.45, relheight=0.5, relwidth=0.8, anchor='nw')
 
@@ -24,18 +28,23 @@ class ProductFrame(AbstractFrame):
         Label(frame, text="Quantity:", bg = '#E6E6E6', font=("Arial", 10)).place(relx=0.4, rely=0.1, relwidth=0.2, relheight=0.15, anchor='nw')
         Label(frame, text="Category:", bg = '#E6E6E6', font=("Arial", 10)).place(relx=0.4, rely=0.3, relwidth=0.2, relheight=0.15, anchor='nw')
         
+        # --- Input fields ---
         name = Entry(frame, width=20)
         price = Entry(frame, width=20)
         quantity = Entry(frame, width=20)
-        category = ttk.Combobox(frame, values=db_category.get_categories(), state='readonly')
+        category = ttk.Combobox(frame, values=db_category.get_categories(), state='readonly')  #create category dropdown dynamically from the database
 
         name.place(relx=0.2, rely=0.1, relwidth=0.2, relheight=0.15, anchor='nw')
         price.place(relx=0.2, rely=0.3, relwidth=0.2, relheight=0.15, anchor='nw')
         quantity.place(relx=0.6, rely=0.1, relwidth=0.2, relheight=0.15, anchor='nw')
         category.place(relx=0.6, rely=0.3, relwidth=0.2, relheight=0.15, anchor='nw')
 
-
+        #inner commit function
         def commit():
+            """
+            Generates a unique ID and insert a new product into the database if doesn't exist
+            Closes the form
+            """
             for i in range(10000):
                 product_id = randint(1000, 9999)
                 if db_product.get_one(product_id) == None:
@@ -45,9 +54,10 @@ class ProductFrame(AbstractFrame):
                     frame.destroy()
                     break
         
-        def back():
+        def back(): #close the form without saving
             frame.destroy()
         
+        # --- Action buttons ---
         btn_back = Button(frame, text="Back", command=back)
         btn_back.place(relx=0.2, rely=0.7, relwidth=0.2, relheight=0.2, anchor='nw')
         
@@ -55,12 +65,15 @@ class ProductFrame(AbstractFrame):
         btn_commit.place(relx=0.5, rely=0.7, relwidth=0.2, relheight=0.2, anchor='nw')
         
 
-    def Show(self):
+    def show(self):
+        """
+        Renders a table with all products in the database
+        """
         storage_window = Tk()
         storage_window.title("Storage")
         storage_window.geometry('500x500')
 
-        lst = db_product.get_all()
+        lst = db_product.get_all()  #fetch all products records from the database
         heads = ["Name", "Price(HKD)", "Quantity", "ID", "Category"]
         table = ttk.Treeview(storage_window, show='headings', columns=heads)
 
@@ -68,6 +81,7 @@ class ProductFrame(AbstractFrame):
         style.theme_use('default')
         style.configure('Treeview', bordercolor="#E8E8E8", borderwidth=1)
 
+        #configure each column header and width
         for he in heads:
             table.heading(he, text=he, anchor='center')
             table.column(he, anchor='center', width=100, stretch=False)
@@ -80,11 +94,13 @@ class ProductFrame(AbstractFrame):
         storage_window.mainloop()
 
 
-        #messagebox.showinfo("Storage", db_product.get_all())
 
 
+    def delete(self):
 
-    def Delete(self):
+        """
+        Renders a form that lets the user delete a product by id
+        """
         frame = Frame(self.parent, bg = '#E6E6E6', highlightbackground="#8E8E8E", highlightthickness=1)
         frame.place(relx=0.1, rely=0.45, relheight=0.5, relwidth=0.8, anchor='nw')
 
@@ -95,6 +111,9 @@ class ProductFrame(AbstractFrame):
 
 
         def delete():
+            """
+            Validate existence and delete a product by id from the database
+            """
             if db_product.get_one(product_id.get()) == None:
                 messagebox.showerror("Storage", "This product does not exist!")
                 frame.destroy()
@@ -103,18 +122,22 @@ class ProductFrame(AbstractFrame):
             messagebox.showinfo("Storage", "Product deleted successfully!")
             frame.destroy()
 
-        def back():
+        def back(): #close the form 
             frame.destroy()
         
+        # --- Action buttons ---
         btn_back = Button(frame, text="Back", command=back)
         btn_back.place(relx=0.2, rely=0.7, relwidth=0.2, relheight=0.2, anchor='nw')
-
+        
         btn_delete = Button(frame, text="Delete", command=delete)
         btn_delete.place(relx=0.5, rely=0.7, relwidth=0.2, relheight=0.2, anchor='nw')
 
 
 
-    def Update(self):
+    def update(self):
+        """
+        Renders a form that lets the user update a product by id
+        """
         
         frame = Frame(self.parent, bg = '#E6E6E6', highlightbackground="#8E8E8E", highlightthickness=1)
         frame.place(relx=0.1, rely=0.45, relheight=0.5, relwidth=0.8, anchor='nw')
@@ -129,6 +152,7 @@ class ProductFrame(AbstractFrame):
         Label(frame, text="Quantity:", bg = '#E6E6E6', font=("Arial", 10)).place(relx=0.4, rely=0.3, relwidth=0.2, relheight=0.15, anchor='nw')
         Label(frame, text="Category:", bg = '#E6E6E6', font=("Arial", 10)).place(relx=0.4, rely=0.5, relwidth=0.2, relheight=0.15, anchor='nw')
 
+        # --- Input fields ---
         name = Entry(frame, width=20)
         price = Entry(frame, width=20)
         quantity = Entry(frame, width=20)
@@ -140,6 +164,9 @@ class ProductFrame(AbstractFrame):
         category.place(relx=0.6, rely=0.5, relwidth=0.2, relheight=0.15, anchor='nw')
 
         def commit():
+            """
+            Validate existence and update a product by id in the database
+            """
             if db_product.get_one(id.get()) == None:
                 messagebox.showerror("Storage", "This product does not exist!")
                 frame.destroy()
@@ -149,9 +176,10 @@ class ProductFrame(AbstractFrame):
             messagebox.showinfo("Storage", "Product updated successfully!")
             frame.destroy()
 
-        def back():
+        def back():   #close the form
             frame.destroy()
         
+        # --- Action buttons ---
         btn_back = Button(frame, text="Back", command=back)
         btn_back.place(relx=0.2, rely=0.7, relwidth=0.2, relheight=0.2, anchor='nw')
         
