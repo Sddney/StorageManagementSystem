@@ -1,5 +1,5 @@
 from sqlite3 import *
-from database.abstract_methods import DatabaseMethods
+from database.interface_repository import DatabaseMethods
 
 
 class ProductsRepository(DatabaseMethods):
