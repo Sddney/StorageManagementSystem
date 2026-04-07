@@ -1,5 +1,5 @@
-from database.category_repository import CategoriesRepository
-from database.product_repository import ProductsRepository
+from database.categories_repository import CategoriesRepository
+from database.products_repository import ProductsRepository
 
 """
 Database initialization file.
