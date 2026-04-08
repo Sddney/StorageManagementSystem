@@ -24,7 +24,7 @@ class ProductsRepository(DatabaseMethods):
             return None
     
     def insert(self, item):   #inserts new product into database
-        self.cursor.execute("INSERT INTO products(product_name, product_price, product_quantity, product_category, product_id) VALUES(?, ?, ?, ?, ?)", 
+        self.cursor.execute("INSERT INTO products(product_name, product_price, product_quantity, product_category, product_id) VALUES(?, ?, ?, ?, ?)",
                             (item.get_name(), item.price, item.quantity, item.category, item.get_id()))
         self.connection.commit()
     

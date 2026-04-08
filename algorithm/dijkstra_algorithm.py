@@ -16,9 +16,9 @@ def dijkstra(graph, start, end):
     Returns:
         tuple: A tuple containing the shortest distance and the path as a list of cities.
                 If no path is found, returns 'Path not reachable'.
-    
+
     """
-    
+
     shortest_distance = {}
     predecessor = {}
     unseen_nodes = copy.deepcopy(graph)

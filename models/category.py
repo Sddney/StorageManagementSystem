@@ -1,4 +1,4 @@
-from models.base_item import BaseItem
+from base_item import BaseItem
 
 class Category(BaseItem):
 

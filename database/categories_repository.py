@@ -12,7 +12,7 @@ class CategoriesRepository(DatabaseMethods):   #inheritance from abstract class
         self.connection = connect(database)
         self.cursor = self.connection.cursor()
         self.cursor.execute("""CREATE TABLE IF NOT EXISTS categories(category_name TEXT, category_id INTEGER, transport_to TEXT)""")
-    
+
     def get_one(self, id):  #returns single category based on ID
         self.cursor.execute("SELECT * FROM categories WHERE category_id=?", (id,))
         return self.cursor.fetchone()
