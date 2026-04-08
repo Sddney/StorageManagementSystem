@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox, ttk
 from random import randint
-from database.product_repository import ProductRepository
+from database.products_repository import ProductRepository
 from database.category_repository import CategoryRepository
 from models.product import Product
 from models.category import Category
