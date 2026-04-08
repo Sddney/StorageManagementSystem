@@ -1,15 +1,10 @@
-import GUI.gui_commands
-from tkinter import *
-#from StorageManager.storage_manager import StorageManager
+# Application entry point.
+# Imports and calls run_gui() to launch the Storage Management system.
 
-window = Tk()
-window.title("Storage Management")
-window.geometry('700x700')
+from GUI.gui_commands import run_gui
 
-lbl = Label(window, text="Storage")
+def main():
+    run_gui()
 
-lbl.grid(column=0, row=0)
-
-#storage_manager = StorageManager()
-
-window.mainloop()
+if __name__ == "__main__":
+    main()
