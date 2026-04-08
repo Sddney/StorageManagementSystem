@@ -3,5 +3,8 @@
 
 from GUI.gui_commands import run_gui
 
-if __name__ == "__main__":  #only run the GUI when this file is executed directly
-    run_gui() 
+def main():
+    run_gui()
+
+if __name__ == "__main__":
+    main()

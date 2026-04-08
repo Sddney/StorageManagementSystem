@@ -1,5 +1,5 @@
 from sqlite3 import *
-from database.interface_repository import DatabaseMethods
+from database.repository_base import DatabaseMethods
 
 class CategoriesRepository(DatabaseMethods):   #inheritance from abstract class
 

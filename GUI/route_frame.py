@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox, ttk
 
-from algorithm.dijkstra_algorithm import Dijkstra, ReturnCities
+from algorithm.dijkstra_algorithm import dijkstra, return_cities
 import json
 
 with open("algorithm/cities.json") as f:
@@ -44,11 +44,11 @@ class RouteFrame:
         Label(frame_cities, text='Towards: ', bg = '#E6E6E6', font=("Arial", 12)).place(relx=0.1, rely=0.6)
 
         #dropdowns created from the cities graph
-        city_from = ttk.Combobox(frame_cities, values=ReturnCities(), state='readonly')
+        city_from = ttk.Combobox(frame_cities, values=return_cities(), state='readonly')
         city_from.place(relx=0.1, rely=0.4, relwidth=0.3, relheight=0.1, anchor='nw')
         city_from.current(0)
 
-        city_to = ttk.Combobox(frame_cities, values=ReturnCities(), state='readonly')
+        city_to = ttk.Combobox(frame_cities, values=return_cities(), state='readonly')
         city_to.place(relx=0.1, rely=0.7, relwidth=0.3, relheight=0.1, anchor='nw')
         city_to.current(0)
 
@@ -68,7 +68,7 @@ class RouteFrame:
             if city_from.get() == city_to.get():
                 messagebox.showerror("Route", "Choose different cities!")
                 return
-            result = Dijkstra(graph, city_from.get(), city_to.get())  #run the algorithm
+            result = dijkstra(graph, city_from.get(), city_to.get())  #run the algorithm
             if result == 'Path not reachable': 
                 messagebox.showerror("Route", "Path not reachable")
                 return

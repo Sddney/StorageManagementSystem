@@ -1,7 +1,7 @@
 from tkinter import *
 from GUI.category_frame import CategoryFrame
 from GUI.product_frame import ProductFrame
-from GUI.route_frame import RouteFrame      
+from GUI.route_frame import RouteFrame
 
 """
 Main GUI entry point.
@@ -41,7 +41,7 @@ def run_gui():
 
     lbl_product = Label(frame_products, text="Products\nManager", bg="#E6E6E6", font=("Arial", 16))
     lbl_product.place(relx=0.1, rely=0.2, relheight=0.2, relwidth=0.2, anchor='nw')
-    
+
     # --- Products actions buttons ---
     btn_add_product = Button(frame_products, text="Add Product", command=product_frame.add)
     btn_get_storage = Button(frame_products, text="Show Products", command=product_frame.show)
@@ -62,7 +62,7 @@ def run_gui():
     # --- Categories actions buttons ---
     btn_add_category = Button(frame_categories, text="Add Category", command=category_frame.add)
     btn_show_categories = Button(frame_categories, text="Show Categories", command=category_frame.show)
-    btn_delete_category = Button(frame_categories, text="Delete Category", command=category_frame.delete) 
+    btn_delete_category = Button(frame_categories, text="Delete Category", command=category_frame.delete)
     btn_update_category = Button(frame_categories, text="Update Category", command=category_frame.update)
 
     btn_add_category.place(relx = 0.45, rely=0.1, relwidth=0.2, relheight=0.1, anchor='nw')
@@ -74,5 +74,7 @@ def run_gui():
     btn_show_route = Button(window, text="Route Between Cities", font=("Arial", 12), command=route_frame.show_route)
     btn_show_route.place(relx=0.05, rely=0.87, relwidth=0.3, relheight=0.07, anchor='nw')
 
-    window.mainloop()  #start the Tkinter event loop
+    window.mainloop()
+
+
 

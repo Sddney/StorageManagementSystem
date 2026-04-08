@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox, ttk
 from random import randint
 from models.category import Category
-from algorithm.dijkstra_algorithm import ReturnCities
+from algorithm.dijkstra_algorithm import return_cities
 from GUI.abstract_frame import AbstractFrame
 from database.databases_initialization import db_category
 
@@ -31,7 +31,7 @@ class CategoryFrame(AbstractFrame):
         
         # --- Input fields ---
         name = Entry(frame, width=20)
-        transport_to = ttk.Combobox(frame, values=ReturnCities(), state='readonly') #create the destination dropdown from the cities graph 
+        transport_to = ttk.Combobox(frame, values=return_cities(), state='readonly') #create the destination dropdown from the cities graph
     
         name.place(relx=0.3, rely=0.1, relwidth=0.2, relheight=0.15, anchor='nw')
         transport_to.place(relx=0.3, rely=0.3, relwidth=0.2, relheight=0.15, anchor='nw')
@@ -39,7 +39,7 @@ class CategoryFrame(AbstractFrame):
         #inner commit function
         def commit():
             """
-            Generates a unique 4-digit id and inserts a Category object in the database if doesn't exist
+            Generates a unique 4-digit id and inserts a Category object in the database if it doesn't exist
             Closes the form.
             """
             for i in range(10000):
@@ -151,7 +151,7 @@ class CategoryFrame(AbstractFrame):
         id.place(relx=0.2, rely=0.1, relwidth=0.2, relheight=0.15, anchor='nw')
         
         name = Entry(frame, width=20)
-        transport_to = ttk.Combobox(frame, values=ReturnCities(), state='readonly')
+        transport_to = ttk.Combobox(frame, values=return_cities(), state='readonly')
 
         name.place(relx=0.2, rely=0.3, relwidth=0.2, relheight=0.15, anchor='nw')
         transport_to.place(relx=0.2, rely=0.5, relwidth=0.2, relheight=0.15, anchor='nw')

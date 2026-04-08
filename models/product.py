@@ -8,7 +8,7 @@ class Product(BaseItem):
     """
 
     def __init__(self, name, price, quantity, category, id):
-        self.name = name
+        super().__init__(name)
         self.price = price
         self.quantity = quantity
         self.category = category

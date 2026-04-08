@@ -2,11 +2,8 @@ import json
 import copy
 
 #Dataset source: https://www.kaggle.com/datasets/lightningforpython/russian-cities-distance-dataset
-with open("algorithm/cities.json") as f:
-    graph = json.load(f)
 
-
-def Dijkstra(graph, start, end):
+def dijkstra(graph, start, end):
 
     """
     Dijkstra's algorithm implementation to find the shortest path between two cities.
@@ -24,37 +21,37 @@ def Dijkstra(graph, start, end):
     
     shortest_distance = {}
     predecessor = {}
-    unseenNodes = copy.deepcopy(graph)
+    unseen_nodes = copy.deepcopy(graph)
     infinity = float('infinity')
     path = []
 
     #initialize all distances as infinity
-    for node in unseenNodes:
+    for node in unseen_nodes:
         shortest_distance[node] = infinity
     shortest_distance[start] = 0
 
     #visiting all nodes and finding node with minimum distance
-    while unseenNodes:
-        minNode = None
-        for node in unseenNodes:
-            if minNode is None:
-                minNode = node
-            elif shortest_distance[node] < shortest_distance[minNode]:
-                minNode = node
+    while unseen_nodes:
+        min_node = None
+        for node in unseen_nodes:
+            if min_node is None:
+                min_node = node
+            elif shortest_distance[node] < shortest_distance[min_node]:
+                min_node = node
 
         #check distances to neighboring nodes and update shortest distance if new distance is shorter
-        for childNode, weight in graph[minNode]:  
-            if weight + shortest_distance[minNode] < shortest_distance[childNode]:  
-                shortest_distance[childNode] = weight + shortest_distance[minNode]
-                predecessor[childNode] = minNode
-        unseenNodes.pop(minNode)
+        for childNode, weight in graph[min_node]:
+            if weight + shortest_distance[min_node] < shortest_distance[childNode]:
+                shortest_distance[childNode] = weight + shortest_distance[min_node]
+                predecessor[childNode] = min_node
+        unseen_nodes.pop(min_node)
 
     #path from end to start
-    currentNode = end
-    while currentNode != start:
+    current_node = end
+    while current_node != start:
         try:
-            path.insert(0, currentNode)
-            currentNode = predecessor[currentNode]
+            path.insert(0, current_node)
+            current_node = predecessor[current_node]
         except KeyError:
             return 'Path not reachable'  #if no path exists
     path.insert(0, start)
@@ -62,7 +59,7 @@ def Dijkstra(graph, start, end):
         return str(shortest_distance[end]), path
     
 
-def ReturnCities():
+def return_cities():
 
     """
     Returns a list of all cities in the dataset.
