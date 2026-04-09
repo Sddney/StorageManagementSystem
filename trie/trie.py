@@ -19,7 +19,7 @@ class Trie:
 
         curr_node.is_leaf = True
 
-    def search(self, word: str) -> bool:
+    def contains(self, word: str) -> bool:
         curr_node = self.root
 
         for char in word:
@@ -29,12 +29,32 @@ class Trie:
 
         return True
 
-    def starts_with(self, prefix: str) -> bool:
-        curr_node = self.root
+    def delete(self, word: str)-> bool:
+        return self._inner_delete(self.root, word, 0)
 
-        for char in prefix:
-            if char not in curr_node.children:
+    def _inner_delete(self, node, word, depth) -> bool:
+        if depth == len(word):
+
+            if not node.is_leaf:
                 return False
-            curr_node = curr_node.children[char]
+
+            node.is_leaf = False
+
+            return len(node.children) == 0
+
+        char = word[depth]
+
+        if char not in node.children:
+            return False
+
+        child = self._inner_delete(node.children[char], word, depth + 1)
+
+        if child:
+            del node.children[char]
+
+            return not node.is_leaf and len(node.children) == 0
 
         return True
+
+
+
