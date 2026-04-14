@@ -78,17 +78,17 @@ sudo apt-get install python3-tk
 
 ## **Task 1 - OOP concepts**
 
-# Encapsulation: Private attributes, getter/setter methods, hidden SQL. Makes each class independently testable and replaceable.
-- Used: [ product.py, category.py, *_repository.py ]
+### Encapsulation: Private attributes, getter/setter methods, hidden SQL. Makes each class independently testable and replaceable.
+#### Used: [ product.py, category.py, *_repository.py ]
 
-# Inheritance: super().__init__(), shared parent attributes and methods. Adding a new entity is easier as the parent witing is already done.
-- Used: [ product_frame.py, category_frame.py, *_repository.py ]
+### Inheritance: super().__init__(), shared parent attributes and methods. Adding a new entity is easier as the parent witing is already done.
+#### Used: [ product_frame.py, category_frame.py, *_repository.py ]
 
-# Polymorphism: Same method name, different behaviour per class. The same methods are implemented differently within different classes.
-- Used: All concrete frames, models, and repositories
+### Polymorphism: Same method name, different behaviour per class. The same methods are implemented differently within different classes.
+#### Used: All concrete frames, models, and repositories
 
-# Abstraction: ABC + @abstractmethod contracts. Mandatory implementation of basic interface. Abstraction enforces consistency. 
-- Used: [ abstract_frame.py, repository_base.py, base_item.py ]
+### Abstraction: ABC + @abstractmethod contracts. Mandatory implementation of basic interface. Abstraction enforces consistency. 
+#### Used: [ abstract_frame.py, repository_base.py, base_item.py ]
 
 ## **Task 2 - Data structure and Algorithm**
 
