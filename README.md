@@ -6,21 +6,21 @@ The application provides a clean graphical user interface to perform standard CR
 
 ### **Functionality**
 
-### Category Management:
+**Category Management:**
 
 - Add new product categories.
 - View a list of all categories.
 - Edit existing category names.
 - Delete categories.
 
-### Product Management:
+**Product Management:**
 
 - Add new products with Name, Price, Quantity, and assigned Category.
 - View all products.
 - Edit product details.
 - Delete products from the inventory.
 
-### Route planning
+**Route planning**
 
 Beyond basic inventory management, the system integrates Dijkstra's shortest-path algorithm to calculate optimal transport routes between cities.
 
@@ -95,7 +95,7 @@ sudo apt-get install python3-tk
 ### Data structure
 Graph: The city network is stored as a weighted adjacency list in cities.json
 
-##№ This is a graph where:
+This is a graph where:
 - Each node is a city
 - Each edge is a road connection
 - Each weight is the distance in kilometres
