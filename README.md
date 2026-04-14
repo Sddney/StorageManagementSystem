@@ -54,21 +54,21 @@ sudo apt-get install python3-tk
 
 ## **Usage Guide**
 
-### Adding a category (required first)
+**Adding a category (required first)**
 
 1. Click **Add Category**
 2. Enter a name (e.g. `Electronics`)
 3. Select a transport destination city from the dropdown
 4. Click **Commit** — a unique 4-digit ID is auto-generated
 
-### Adding a product
+**Adding a product**
 
 1. Click **Add Product**
 2. Fill in Name, Price (HKD), Quantity
 3. Select a Category from the dropdown (populated from the database)
 4. Click **Commit**
 
-### Finding a route
+**Finding a route**
 
 1. Click **Route Between Cities**
 2. Select the origin city from the **From** dropdown
@@ -121,9 +121,8 @@ https://www.kaggle.com/datasets/lightningforpython/russian-cities-distance-datas
 
 ### Algorithm
 
-Dijkstra Algorithm
+Dijkstra Algorithm is used to find the shortest path and distance between the cities. Here is the algorithm logic:
 
-**Algorithm walkthrough**
 ```
 1. Set distance[start] = 0, all others = ∞
 2. Copy graph into unseenNodes (working set)
