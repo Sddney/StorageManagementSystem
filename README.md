@@ -1,4 +1,4 @@
-##📦 **Storage management system**
+## 📦 **Storage management system**
 
 Simple Storage Manager is a lightweight desktop application designed to manage a basic storage inventory. It focuses on the two core entities of any warehouse: Products and Categories.
 
