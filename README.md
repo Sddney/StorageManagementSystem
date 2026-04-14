@@ -1,10 +1,10 @@
-## **Storage management system**
+##📦 **Storage management system**
 
 Simple Storage Manager is a lightweight desktop application designed to manage a basic storage inventory. It focuses on the two core entities of any warehouse: Products and Categories.
 
 The application provides a clean graphical user interface to perform standard CRUD operations.
 
-### **Functionality**
+### 🚀 **Functionality**
 
 **Category Management:**
 
@@ -29,12 +29,12 @@ Beyond basic inventory management, the system integrates Dijkstra's shortest-pat
 - Displays the complete ordered list of cities on the route
 - Handles disconnected graphs gracefully
 
-## **Tech Stack**
+## 🛠️ **Tech Stack**
 
 - Programming language: Python 3
 - Libraries: SQLite3, abc, copy, json, random, tkinter
 
-## **How to run**
+## ⚙️ **How to run**
 
 ### Prerequisites
 - Python 3.10 or higher
@@ -52,7 +52,7 @@ python main.py
 sudo apt-get install python3-tk
 ```
 
-## **Usage Guide**
+## 🧑‍💻 **Usage Guide**
 
 **Adding a category (required first)**
 
@@ -76,7 +76,7 @@ sudo apt-get install python3-tk
 4. Click **Show Route**
 5. The shortest distance (km) and full city path are displayed below
 
-## **Task 1 - OOP concepts**
+## 🧩 **Task 1 - OOP concepts**
 
 - Encapsulation: Private attributes, getter/setter methods, hidden SQL. Makes each class independently testable and replaceable.<br>
   Used: [ product.py, category.py, *_repository.py ]
@@ -90,7 +90,7 @@ sudo apt-get install python3-tk
 - Abstraction: ABC + @abstractmethod contracts. Mandatory implementation of basic interface. Abstraction enforces consistency.<br>
   Used: [ abstract_frame.py, repository_base.py, base_item.py ]
 
-## **Task 2 - Data structure and Algorithm**
+## 📊 **Task 2 - Data structure and Algorithm**
 
 ### Data structure
 Graph: The city network is stored as a weighted adjacency list in cities.json
@@ -146,7 +146,7 @@ Distance: 70 km
 Path:     Blagodarnyy -> Budonnovsk
 
 
-## **Project Architecture**
+## 📁 **Project Architecture**
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
