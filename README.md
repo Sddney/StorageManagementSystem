@@ -52,7 +52,7 @@ python main.py
 sudo apt-get install python3-tk
 ```
 
-## Usage Guide
+## **Usage Guide**
 
 ### Adding a category (required first)
 
