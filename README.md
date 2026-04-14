@@ -31,8 +31,8 @@ Beyond basic inventory management, the system integrates Dijkstra's shortest-pat
 
 ### **Tech Stack**
 
-Programming language: Python 3
-Libraries: SQLite3, abc, copy, json, random, tkinter
+- Programming language: Python 3
+- Libraries: SQLite3, abc, copy, json, random, tkinter
 
 ### **How to run**
 
@@ -79,23 +79,23 @@ sudo apt-get install python3-tk
 ### **Task 1 - OOP concepts**
 
 - Encapsulation: Private attributes, getter/setter methods, hidden SQL. Makes each class independently testable and replaceable.
-product.py, category.py, *_repository.py
+Used: [ product.py, category.py, *_repository.py ]
 
 - Inheritance: super().__init__(), shared parent attributes and methods. Adding a new entity is easier as the parent witing is already done.
-product_frame.py, category_frame.py, *_repository.py - inherit from parent classes.
+Used: [ product_frame.py, category_frame.py, *_repository.py ]
 
 - Polymorphism: Same method name, different behaviour per class. The same methods are implemented differently within different classes.
-All concrete frames, models, and repositories
+Used: All concrete frames, models, and repositories
 
 - Abstraction: ABC + @abstractmethod contracts. Mandatory implementation of basic interface. Abstraction enforces consistency. 
-abstract_frame.py, repository_base.py, base_item.py
+Used: [ abstract_frame.py, repository_base.py, base_item.py ]
 
 ### **Task 2 - Data structure and Algorithm**
 
-### **Data structure** 
+### Data structure
 Graph: The city network is stored as a weighted adjacency list in cities.json
 
-### This is a graph where:
+## This is a graph where:
 - Each node is a city
 - Each edge is a road connection
 - Each weight is the distance in kilometres
@@ -116,7 +116,6 @@ Graph: The city network is stored as a weighted adjacency list in cities.json
 
 ```
 **Data set was taken as an example data** 
-
 https://www.kaggle.com/datasets/lightningforpython/russian-cities-distance-dataset
 
 
