@@ -176,7 +176,7 @@ Path:     Blagodarnyy -> Budonnovsk
 │         ↑ both inherit DatabaseMethods (ABC)                │
 └──────────────────────────┬──────────────────────────────────┘
                            │
-            [ StorageManager ] -> storage_database.db
+                storage_database.db
 ```
 
 ## Project Structure
@@ -206,16 +206,13 @@ storage-management/
 ├── algorithm/
 │   ├── dijkstra_algorithm.py        # Dijkstra's algorithm + ReturnCities()
 │   └── cities.json                  # City graph dataset (Kaggle)
-|
-├── StorageManagement/
-│   └── storage_manager.py                  # SQLite Database management 
 │
 └── README.md
 ```
 
 ## Database Schema
 
-The SQLite database (`database/storage_database.db`) contains two tables:
+The SQLite database (`task1/database/storage_database.db`) contains two tables:
 
 ```sql
 CREATE TABLE categories (
