@@ -1,9 +1,9 @@
 from tkinter import *
 from tkinter import messagebox, ttk
 from random import randint
-from models.product import Product
-from GUI.abstract_frame import AbstractFrame
-from database.databases_initialization import db_category, db_product
+from task1.models.product import Product
+from task1.GUI.abstract_frame import AbstractFrame
+from task1.database.databases_initialization import db_category, db_product
 
 class ProductFrame(AbstractFrame):
 
@@ -74,7 +74,7 @@ class ProductFrame(AbstractFrame):
         storage_window.geometry('500x500')
 
         lst = db_product.get_all()  #fetch all products records from the database
-        heads = ["Name", "Price(HKD)", "Quantity", "ID", "Category"]
+        heads = ["Name", "Price(HKD)", "Quantity", "Category", "ID"]
         table = ttk.Treeview(storage_window, show='headings', columns=heads)
 
         style = ttk.Style(table)

@@ -1,10 +1,10 @@
 from tkinter import *
 from tkinter import messagebox, ttk
 
-from algorithm.dijkstra_algorithm import dijkstra, return_cities
+from task2.dijkstra.dijkstra_algorithm import dijkstra, return_cities
 import json
 
-with open("algorithm/cities.json") as f:
+with open("task2/dijkstra/cities.json") as f:
         graph = json.load(f)
 
 

@@ -1,4 +1,4 @@
-from models.base_item import BaseItem
+from task1.models.base_item import BaseItem
 
 class Product(BaseItem):
 
