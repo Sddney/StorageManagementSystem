@@ -94,7 +94,7 @@ sudo apt-get install python3-tk
 ## 📊 **Task 2 - Data structure and Algorithm**
 
 ### Data structure
-Graph: The city network is stored as a weighted adjacency list in cities.json
+Graph: The city network is stored as a weighted adjacency list in cities.json. The data structure allows O(1) lookups for neighbors in graph.
 
 This is a graph where:
 - Each node is a city
@@ -122,7 +122,7 @@ https://www.kaggle.com/datasets/lightningforpython/russian-cities-distance-datas
 
 ### Algorithm
 
-Dijkstra Algorithm is used to find the shortest path and distance between the cities. Here is the algorithm logic:
+Dijkstra Algorithm is used to find the shortest path and distance between the cities. The algorithm implementation is O(V^2). Here is the algorithm logic:
 
 ```
 1. Set distance[start] = 0, all others = ∞
