@@ -19,7 +19,7 @@ def dijkstra(graph, start, end):
 
     """
 
-    shortest_distance = {}
+    shortest_distance = {}  
     predecessor = {}
     unseen_nodes = copy.deepcopy(graph)
     infinity = float('infinity')
@@ -50,11 +50,12 @@ def dijkstra(graph, start, end):
     current_node = end
     while current_node != start:
         try:
-            path.insert(0, current_node)
+            path.append(current_node)
             current_node = predecessor[current_node]
         except KeyError:
             return 'Path not reachable'  #if no path exists
-    path.insert(0, start)
+    path.append(start)
+    path.reverse()
     if shortest_distance[end] != infinity:
         return str(shortest_distance[end]), path
     
@@ -71,5 +72,8 @@ def return_cities():
     with open("algorithm/cities.json") as f:
         data = json.load(f)
     return list(dict(data).keys())
+    
+
+
     
 
