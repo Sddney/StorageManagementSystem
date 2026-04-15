@@ -1,7 +1,7 @@
 from tkinter import *
-from task1.GUI.category_frame import CategoryFrame
-from task1.GUI.product_frame import ProductFrame
-from task1.GUI.route_frame import RouteFrame
+from GUI.category_frame import CategoryFrame
+from GUI.product_frame import ProductFrame
+from GUI.route_frame import RouteFrame
 
 """
 Main GUI entry point.

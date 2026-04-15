@@ -1,9 +1,9 @@
 from tkinter import *
 from tkinter import messagebox, ttk
 from random import randint
-from task1.models.product import Product
-from task1.GUI.abstract_frame import AbstractFrame
-from task1.database.databases_initialization import db_category, db_product
+from models.product import Product
+from GUI.abstract_frame import AbstractFrame
+from database.databases_initialization import db_category, db_product
 
 class ProductFrame(AbstractFrame):
 

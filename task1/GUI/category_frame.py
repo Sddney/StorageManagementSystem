@@ -1,10 +1,10 @@
 from tkinter import *
 from tkinter import messagebox, ttk
 from random import randint
-from task1.models.category import Category
-from task1.algorithm.dijkstra_algorithm import return_cities
-from task1.GUI.abstract_frame import AbstractFrame
-from task1.database.databases_initialization import db_category
+from models.category import Category
+from algorithm.dijkstra_algorithm import return_cities
+from GUI.abstract_frame import AbstractFrame
+from database.databases_initialization import db_category
 
 class CategoryFrame(AbstractFrame):
 

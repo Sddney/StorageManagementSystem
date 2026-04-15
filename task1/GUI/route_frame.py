@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox, ttk
 
-from task1.algorithm.dijkstra_algorithm import dijkstra, return_cities
+from algorithm.dijkstra_algorithm import dijkstra, return_cities
 import json
 
 with open("algorithm/cities.json") as f:

@@ -1,4 +1,4 @@
-from task1.models.base_item import BaseItem
+from models.base_item import BaseItem
 
 class Category(BaseItem):
 
