@@ -1,5 +1,5 @@
 import unittest
-from trie.trie import Trie
+from task2.trie.trie import Trie
 
 class TestTrie(unittest.TestCase):
     def test_trie_insert(self):

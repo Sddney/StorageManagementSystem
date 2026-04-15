@@ -1,5 +1,5 @@
 from sqlite3 import *
-from database.repository_base import DatabaseMethods
+from task1.database.repository_base import DatabaseMethods
 
 class Node:
     """Node for Binary Search Tree."""
