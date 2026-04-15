@@ -38,12 +38,13 @@ Beyond basic inventory management, the system integrates Dijkstra's shortest-pat
 
 ### Prerequisites
 - Python 3.10 or higher
-- No external packages required — only the Python standard library is used 
+- No external packages required, only the Python standard library is used 
 
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Sddney/StorageManagementSystem.git
 cd storage-management
+cd task1
 
 # 2. Run the application
 python main.py
