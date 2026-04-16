@@ -22,13 +22,26 @@ python main.py
 sudo apt-get install python3-tk
 ```
 
-## 🧩 **Task 1 - OOP concepts**
+## **Task 1 - OOP concepts**
 
 ### 📦 **Storage management system**
 
 Simple Storage Manager is a lightweight desktop application designed to manage a basic storage inventory. It focuses on the two core entities of any warehouse: Products and Categories.
 
 The application provides a clean graphical user interface to perform standard CRUD operations.
+
+### 🧩  OOP concepts used
+- Encapsulation: Private attributes, getter/setter methods, hidden SQL. Makes each class independently testable and replaceable.<br>
+  Used: [ product.py, category.py, *_repository.py ]
+
+- Inheritance: super().__init__(), shared parent attributes and methods. Adding a new entity is easier as the parent witing is already done.<br>
+  Used: [ product_frame.py, category_frame.py, *_repository.py ]
+
+- Polymorphism: Same method name, different behaviour per class. The same methods are implemented differently within different classes.<br>
+  Used: All concrete frames, models, and repositories
+
+- Abstraction: ABC + @abstractmethod contracts. Mandatory implementation of basic interface. Abstraction enforces consistency.<br>
+  Used: [ abstract_frame.py, repository_base.py, base_item.py ]
 
 ### 🚀 **Functionality**
 
@@ -55,20 +68,7 @@ Beyond basic inventory management, the system integrates Dijkstra's shortest-pat
 - Displays the complete ordered list of cities on the route
 - Handles disconnected graphs gracefully
 
-### OOP concepts
-- Encapsulation: Private attributes, getter/setter methods, hidden SQL. Makes each class independently testable and replaceable.<br>
-  Used: [ product.py, category.py, *_repository.py ]
-
-- Inheritance: super().__init__(), shared parent attributes and methods. Adding a new entity is easier as the parent witing is already done.<br>
-  Used: [ product_frame.py, category_frame.py, *_repository.py ]
-
-- Polymorphism: Same method name, different behaviour per class. The same methods are implemented differently within different classes.<br>
-  Used: All concrete frames, models, and repositories
-
-- Abstraction: ABC + @abstractmethod contracts. Mandatory implementation of basic interface. Abstraction enforces consistency.<br>
-  Used: [ abstract_frame.py, repository_base.py, base_item.py ]
-
-### 🧑‍💻 **Usage Guide**
+## 🧑‍💻 **Usage Guide**
 
 **Adding a category (required first)**
 
@@ -92,9 +92,9 @@ Beyond basic inventory management, the system integrates Dijkstra's shortest-pat
 4. Click **Show Route**
 5. The shortest distance (km) and full city path are displayed below
 
-## 📊 **Task 2 - Data structure and Algorithm**
+## **Task 2 - Data structure and Algorithm**
 
-### Data structure
+###  📊  Data structure
 
 Prefix Trie: A dictionary-based Trie with linked nodes. Words with the same prefix share nodes. The time complexity: Insert O(L), Contains O(L), Delete O(L), where L is the size of the alphabet.
 
@@ -123,7 +123,7 @@ Delete    O(L)  Recursion call per charachter
 '''
 
 
-### Algorithm
+### 📊  Algorithm
 
 Dijkstra Algorithm is used to find the shortest path and distance between the cities. The algorithm implementation is O(V^2). Here is the algorithm logic:
 
