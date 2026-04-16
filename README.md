@@ -291,4 +291,7 @@ CREATE TABLE products (
 );
 ```
 
+AI declaration
+
+
 For the diagrams in task 2 report, Figma AI was used. 
