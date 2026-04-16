@@ -24,6 +24,8 @@ sudo apt-get install python3-tk
 
 ## **Task 1 - OOP concepts**
 
+**introduction video:**  https://drive.google.com/file/d/1VgPXDp2b6Q1ddiFCAhOQHUbpcBuS_GRb/view?usp=drive_link
+
 ### 📦 **Storage management system**
 
 Simple Storage Manager is a lightweight desktop application designed to manage a basic storage inventory. It focuses on the two core entities of any warehouse: Products and Categories.
@@ -95,6 +97,8 @@ Beyond basic inventory management, the system integrates Dijkstra's shortest-pat
 ## **Task 2 - Data structure and Algorithm**
 
 ###  📊  Data structure
+
+**introduction video:**  https://drive.google.com/file/d/1bV_KWjrLiUaMzVwSIdF3ZVPIAbhXkwHb/view?usp=sharing
 
 Prefix Trie: A dictionary-based Trie with linked nodes. Words with the same prefix share nodes. The time complexity: Insert O(L), Contains O(L), Delete O(L), where L is the size of the alphabet.
 
