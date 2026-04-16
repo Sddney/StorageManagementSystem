@@ -57,8 +57,8 @@ def dijkstra(graph, start, end):
     path.append(start)
     path.reverse()
     if shortest_distance[end] != infinity:
-        return str(shortest_distance[end]), path
-    
+        return shortest_distance[end], path
+
 
 def return_cities():
 
@@ -69,7 +69,7 @@ def return_cities():
 
     """
 
-    with open("algorithm/cities.json") as f:
+    with open("task2/dijkstra/cities.json") as f:
         data = json.load(f)
     return list(dict(data).keys())
     

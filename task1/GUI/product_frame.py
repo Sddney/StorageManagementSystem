@@ -74,7 +74,7 @@ class ProductFrame(AbstractFrame):
         storage_window.geometry('500x500')
 
         lst = db_product.get_all()  #fetch all products records from the database
-        heads = ["Name", "Price(HKD)", "Quantity", "ID", "Category"]
+        heads = ["Name", "Price(HKD)", "Quantity", "Category", "ID"]
         table = ttk.Treeview(storage_window, show='headings', columns=heads)
 
         style = ttk.Style(table)

@@ -23,5 +23,5 @@ class BaseItem(ABC):
 
     @abstractmethod
     def set_name(self, name):
-        pass
+        self.name = name
 

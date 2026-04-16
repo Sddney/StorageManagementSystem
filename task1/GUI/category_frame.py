@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox, ttk
 from random import randint
 from models.category import Category
-from algorithm.dijkstra_algorithm import return_cities
+from dijkstra.dijkstra_algorithm import return_cities
 from GUI.abstract_frame import AbstractFrame
 from database.databases_initialization import db_category
 
@@ -161,12 +161,12 @@ class CategoryFrame(AbstractFrame):
             Validate existence and update a category by id in the database
             """
             if db_category.get_one(id.get()) == None:
-                messagebox.showerror("Storage", "This product does not exist!")
+                messagebox.showerror("Storage", "This category does not exist!")
                 frame.destroy()
                 return
             new_category = Category(name.get(), id.get(), transport_to.get())
             db_category.update(id.get(), new_category)
-            messagebox.showinfo("Storage", "Product updated successfully!")
+            messagebox.showinfo("Storage", "Category updated successfully!")
             frame.destroy()
 
         def back():  #close the form

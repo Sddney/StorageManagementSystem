@@ -69,12 +69,11 @@ def return_cities():
 
     """
 
-    with open("algorithm/cities.json") as f:
+    with open("task2/dijkstra/cities.json") as f:
         data = json.load(f)
     return list(dict(data).keys())
     
 
 
     
-
 
