@@ -280,3 +280,4 @@ CREATE TABLE products (
     product_id        INTEGER -- 4-digit unique ID, generated randomly
 );
 ```
+

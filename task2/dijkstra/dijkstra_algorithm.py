@@ -57,8 +57,8 @@ def dijkstra(graph, start, end):
     path.append(start)
     path.reverse()
     if shortest_distance[end] != infinity:
-        return str(shortest_distance[end]), path
-    
+        return shortest_distance[end], path
+
 
 def return_cities():
 
