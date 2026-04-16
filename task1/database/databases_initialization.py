@@ -1,5 +1,5 @@
-from task1.database.categories_repository import CategoriesRepository
-from task1.database.products_repository import ProductsRepository
+from database.categories_repository import CategoriesRepository
+from database.products_repository import ProductsRepository
 
 """
 Database initialization file.
