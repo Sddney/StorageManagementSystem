@@ -4,7 +4,7 @@ from tkinter import messagebox, ttk
 from dijkstra.dijkstra_algorithm import dijkstra, return_cities
 import json
 
-with open("task1/dijkstra/cities.json") as f:
+with open("dijkstra/cities.json") as f:
         graph = json.load(f)
 
 
