@@ -16,6 +16,7 @@ cd storage-management
 cd task1
 
 # 2. Run the application
+# Root directory needs to be 'task1'
 python main.py
 
 # Note: On some Linux systems, Tkinter must be installed separately:
